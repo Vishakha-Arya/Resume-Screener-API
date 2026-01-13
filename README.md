@@ -1,40 +1,42 @@
-## AI-Powered Resume Screener
+## Resume-Screener-API
 
-### Project introduction
+### Project Overview
 
-A FastAPI-based API that accepts resumes (PDF or text), extracts features, classifies them (e.g., software engineer, data analyst, rejected), and returns a score or decision.
+Resume-Screener-API is a backend application that automatically reads and analyzes resumes to determine a candidate’s job category.
+It allows users to upload a resume file and get a prediction such as Software Engineer, Data Analyst, or Accountant.
+The system is built as a REST API using FastAPI and uses a machine learning model to classify resumes based on their content.
 
-### Project Summary
+### What This Project Does
 
-This is a machine learning–based microservice that allows users to upload a resume file (PDF) and receive a prediction of the candidate's job role or domain — such as Software Engineer, Data Analyst, or Accountant.
-It uses Natural Language Processing (NLP) and a trained ML classifier to analyze the content of the resume and make accurate, data-driven decisions.
+1. Resume Upload
+A user uploads a resume file (PDF) through an API endpoint.
 
-### Key Features
+2. Text Extraction
+The system reads the uploaded file and extracts the text using a PDF parser.
 
-- Accepts resumes in PDF format via API
-- Extracts raw text using PDF parsers
-- Uses TF-IDF + ML classifier to predict job role
-- Built with FastAPI and Scikit-learn
-- Supports local and containerized (Docker) deployment
-- Designed and can be used for integration into HR tech stacks, ATS tools, and recruitment workflows
+3. Text Processing
+The extracted text is converted into numerical features using TF-IDF vectorization.
 
-### What the Project Does
+4. ML Prediction
+A pre-trained Random Forest Classifier predicts the job category (e.g., "Software Engineer", "Data Analyst") based on the resume content.
 
-- Resume Upload
-  A user (HR personnel, recruiter, or a system) uploads a resume file via the API endpoint.
-- Text Extraction
-  The backend reads the uploaded PDF and extracts all text using a Python PDF parser like pdfminer.six.
-- Text Vectorization
-  The raw text is transformed into machine-readable features using TF-IDF Vectorization, converting words into weighted numerical values based on their importance.
-- ML Model Prediction
-  A pre-trained Random Forest Classifier predicts the job category (e.g., "Software Engineer", "Data Analyst") based on the resume content.
-- Response Delivery
-  The predicted label is returned as a JSON response:
+6. API Response
+The predicted label is returned as a JSON response:
   ```
   {
   "prediction": "Software Engineer"
   }
   ```
+
+### Key Features
+
+- Upload resumes in PDF format through REST API endpoints
+- Automatically extracts text from resume files
+- Uses TF-IDF and machine learning models to classify job roles
+- Built using FastAPI for high-performance backend services
+- Uses Scikit-learn for resume analysis and prediction
+- Can be run locally or using Docker for deployment
+- Suitable for use in HR systems, ATS platforms, and recruitment tools
 
 ### Tech Stack
 
